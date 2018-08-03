@@ -10,14 +10,16 @@
 #include "SSD1306Spi.h"
 // =========================== //
 
+#define DEFAULT_SSID "Dickbutt " + bytesToStr(&(settings.getMacAP()[3]), 3)
+
 // ===================== LED CONFIG ==================== //
 /* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
     Uncomment the type of LED  you're using
     Only one of them can be defined at a time!
    = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
-//#define DIGITAL_LED
+#define DIGITAL_LED
 //#define RGB_LED
-#define NEOPIXEL_LED
+//#define NEOPIXEL_LED
 
 /* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
     Adjust following settings for your type of LED
@@ -26,7 +28,7 @@
    
 // === Settings for Digital LED and RGB LED === //
 #define LED_ANODE false   // common vcc (+)
-#define LED_PIN_R 16      // NodeMCU on-board LED
+#define LED_PIN_R 255      // NodeMCU on-board LED
 #define LED_PIN_G 255     // 255 = LED disabled
 #define LED_PIN_B 2       // ESP-12 LED
 
@@ -44,15 +46,15 @@
 //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
 
 // ===================== DISPLAY CONFIG ==================== //
-#define USE_DISPLAY true // default display setting
+#define USE_DISPLAY false // default display setting
 
 /* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
     Adjust the pins to match your setup
     Comment out the buttons you don't use.
    = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
-#define BUTTON_UP 12
-#define BUTTON_DOWN 13
-#define BUTTON_A 14
+#define BUTTON_UP 14
+#define BUTTON_DOWN 12
+#define BUTTON_A 13
 
 //#define BUTTON_LEFT 12
 //#define BUTTON_RIGHT 13
@@ -62,11 +64,9 @@
     Uncomment the type of display you're using
     Only one of them can be defined at a time!
    = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    0x3c = I2C address
-    SDA = GPIO 5 (D1)  
-    SCL/SCK = GPIO 4 (D2) */
-//#define DEAUTHER_DISPLAY SSD1306Wire display = SSD1306Wire(0x3c, 5, 4); // for 0.96" OLED
-#define DEAUTHER_DISPLAY SH1106Wire display = SH1106Wire(0x3c, 5, 4); // for 1.3" OLED
+*/
+#define DEAUTHER_DISPLAY SSD1306Wire display = SSD1306Wire(0x3c, 5, 4); // for 0.96" OLED
+//#define DEAUTHER_DISPLAY SH1106Wire display = SH1106Wire(0x3c, 5, 4); // for 1.3" OLED
 
 /*  RST = GPIO 5 (D1)
     DC = GPIO 4 (D2)

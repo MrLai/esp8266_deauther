@@ -65,8 +65,8 @@
     0x3c = I2C address
     SDA = GPIO 5 (D1)  
     SCL/SCK = GPIO 4 (D2) */
-//#define DEAUTHER_DISPLAY SSD1306Wire display = SSD1306Wire(0x3c, 5, 4); // for 0.96" OLED
-#define DEAUTHER_DISPLAY SH1106Wire display = SH1106Wire(0x3c, 5, 4); // for 1.3" OLED
+#define DEAUTHER_DISPLAY SSD1306Wire display = SSD1306Wire(0x3c, 5, 4); // for 0.96" OLED
+//#define DEAUTHER_DISPLAY SH1106Wire display = SH1106Wire(0x3c, 5, 4); // for 1.3" OLED
 
 /*  RST = GPIO 5 (D1)
     DC = GPIO 4 (D2)
